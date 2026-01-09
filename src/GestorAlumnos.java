@@ -27,4 +27,23 @@ public class GestorAlumnos {
         listaAlumnos.removeIf(a -> a.codigo.equals(codigo));
         System.out.println("Alumno con codigo " + codigo + " eliminado.");
     }
+
+    //nuevo metodo actualizar alumno
+    //recibe el codigo del alumno a actualizar y los nuevos datos
+    public void editarAlumno(String codigo, String nuevoNombre, String nuevoApellido, int nuevaEdad) {
+            boolean encontrado = false;
+        for (Alumno a : listaAlumnos) {
+            if (a.codigo.equals(codigo)) {
+                a.nombre = nuevoNombre;
+                a.apellido = nuevoApellido;
+                a.edad = nuevaEdad;
+                System.out.println("Datos actualizados correctamente para el código: " + codigo + " actualizado.");
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Alumno con codigo " + codigo + " no encontrado.");
+        }
+    }
 }
